@@ -7,5 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class StackGame : MonoBehaviour 
 {
-    
+    void Start()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
 }

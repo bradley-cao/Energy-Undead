@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
     
     void Start()
     {
+        SceneManager.LoadScene("StartMenu");
         StartButton.SetActive(true);
         AboutButton.SetActive(true);
         StartButton.GetComponent<Button>().onClick.AddListener(() => StartGame());
