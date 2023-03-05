@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start Menu.unity
     guid: c36b7ffbfac32a6408e4c1e03f330fdc
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Stack.unity
     guid: 4ed73f43e3453a242a9317055883ec3d
@@ -41,4 +38,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/About.unity
     guid: 797a3033b823b2f459df49ce30ea1569
+  - enabled: 1
+    path: Assets/Scenes/StackInstructions.unity
+    guid: 210fd0d4483e4da49ac686aa7c59c70b
+  - enabled: 1
+    path: Assets/Scenes/WindowPaneInstructions.unity
+    guid: e73e4c2702f89474ea721ab961f37bf2
+  - enabled: 1
+    path: Assets/Scenes/ThermoInstructions.unity
+    guid: ffb22a3a803b5db49a24c2ed40554969
   m_configObjects: {}

@@ -23,12 +23,6 @@ public class MenuManager : MonoBehaviour
 
     public void About()
     {
-        StartButton.SetActive(false);
+        SceneManager.LoadScene("About");
     }
-
-    public void Quit()
-    {
-        StartButton.SetActive(false);
-    }
-    
 }
