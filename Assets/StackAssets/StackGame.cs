@@ -24,7 +24,7 @@ public class StackGame : MonoBehaviour
     {
         gameRunning = true;
         start = Time.time;
-        newblock = Instantiate(blockPrefab, new Vector3(0, -250, 0), Quaternion.identity);
+        newblock = Instantiate(blockPrefab, new Vector3(0, -225, 0), Quaternion.identity);
         newblock.transform.SetParent(Canvas.transform, false);
         // make block continuouslly bounce left and right
     }
@@ -69,20 +69,21 @@ public class StackGame : MonoBehaviour
         {
             if (stackHeight > 0) 
             {
-                var prevWidth = square.localScale.x;
+                var prevWidth = square.localScale.x * 40;
                 var prevLeftX = previousBlock.GetComponent<RectTransform>().localPosition.x - prevWidth/2;
                 var prevRightX = previousBlock.GetComponent<RectTransform>().localPosition.x + prevWidth/2;
                 var prevCenter = previousBlock.GetComponent<RectTransform>().localPosition.x;
                 // Debug.Log("prevLeftX: " + prevLeftX + " prevRightX: " + prevRightX + " prevWidth: " + prevWidth + " prevCenter: " + prevCenter);
-                var currWidth = square.localScale.x;
+                var currWidth = square.localScale.x * 40;
                 var currLeftX = blockTransform.localPosition.x - currWidth/2;
                 var currRightX = blockTransform.localPosition.x + currWidth/2;
                 if (currLeftX > prevRightX || currRightX < prevLeftX)
                 {
-                    Debug.Log("Game Over");
+                    Debug.Log("You Lose");
                     gameRunning = false;
                     enabled = false;
                     newblock.SetActive(false);
+                    SceneManager.LoadScene("StackGameLose");
                     // SceneManager.LoadScene("GameOver");
                 }
                 else if (currLeftX < prevLeftX)
@@ -109,7 +110,7 @@ public class StackGame : MonoBehaviour
                 width = currWidth;
                 // Debug.Log("currLeftX: " + leftX + " currRightX: " + rightX + " newWidth: " + width + " center: " + center);
                 blockTransform.localPosition = new Vector3(center, blockTransform.localPosition.y, 0);
-                square.localScale = new Vector3(width, 25, 0);
+                square.localScale = new Vector3(width/40, 10, 0);
             }
             
             if (gameRunning) 
@@ -128,7 +129,7 @@ public class StackGame : MonoBehaviour
                 newblock = Instantiate(newblock, newPos, Quaternion.identity);            
                 newblock.transform.SetParent(Canvas.transform, false);
                 square = blockTransform.GetChild(0).GetComponent<RectTransform>();
-                square.localScale = new Vector3(width, 25, 0);
+                square.localScale = new Vector3(width/40, 10, 0);
                 stackHeight++;
             }
         }
