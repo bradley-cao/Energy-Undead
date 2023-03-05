@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -14,12 +15,11 @@ public class NewBehaviourScript : MonoBehaviour
     int left_right;
     int up_down;
 
-
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         Debug.Log("Good morning");
-        transform.position = new Vector2(1,1); // XXX finish this
+        transform.position = new Vector2(1,1);
     }
 
     // Update is called once per frame
@@ -65,4 +65,5 @@ public class NewBehaviourScript : MonoBehaviour
         // updates sprite appearance to reflect correct direction
         animator.SetInteger("current_dir", current_dir);
     }
+    
 }
