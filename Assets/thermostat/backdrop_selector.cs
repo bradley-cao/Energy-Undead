@@ -88,7 +88,7 @@ public class backdrop_selsector : MonoBehaviour
         }
         tempText.color = Color.green;
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("LobbyScene");
+        SceneManager.LoadScene("LobbyScene", LoadSceneMode.Single);
         coroutine_running = false;
     }
 

@@ -13,6 +13,6 @@ public class backButton : MonoBehaviour
 	}
 
 	void BackToStart(){
-		SceneManager.LoadScene("Start Menu");
+		SceneManager.LoadScene("Start Menu", LoadSceneMode.Single);
 	}
 }

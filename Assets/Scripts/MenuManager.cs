@@ -18,11 +18,11 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Cutscene");
+        SceneManager.LoadScene("Cutscene", LoadSceneMode.Single);
     }
 
     public void About()
     {
-        SceneManager.LoadScene("About");
+        SceneManager.LoadScene("About", LoadSceneMode.Single);
     }
 }

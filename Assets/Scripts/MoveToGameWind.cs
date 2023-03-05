@@ -9,7 +9,7 @@ public class MoveToGameWind : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("windowpane");
+            SceneManager.LoadScene("windowpane", LoadSceneMode.Single);
         }
         
     }

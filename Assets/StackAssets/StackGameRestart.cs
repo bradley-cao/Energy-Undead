@@ -13,6 +13,6 @@ public class StackGameRestart : MonoBehaviour
 	}
 
 	void TaskOnClick(){
-		SceneManager.LoadScene("Stack");
+		SceneManager.LoadScene("Stack", LoadSceneMode.Single);
 	}
 }

@@ -37,7 +37,7 @@ public class StackGame : MonoBehaviour
             gameRunning = false;
             enabled = false;
             newblock.SetActive(false);
-            SceneManager.LoadScene("LobbyScene");
+            SceneManager.LoadScene("LobbyScene", LoadSceneMode.Single);
         }
         RectTransform blockTransform = newblock.GetComponent<RectTransform>();
         var square = blockTransform.GetChild(0).GetComponent<RectTransform>();
@@ -83,7 +83,7 @@ public class StackGame : MonoBehaviour
                     gameRunning = false;
                     enabled = false;
                     newblock.SetActive(false);
-                    SceneManager.LoadScene("StackGameLose");
+                    SceneManager.LoadScene("StackGameLose", LoadSceneMode.Single);
                     // SceneManager.LoadScene("GameOver");
                 }
                 else if (currLeftX < prevLeftX)

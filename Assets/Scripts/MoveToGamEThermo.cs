@@ -9,7 +9,7 @@ public class MoveToGameWindow : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("thermostat");
+            SceneManager.LoadScene("thermostat", LoadSceneMode.Single);
         }
     }
 }

@@ -20,7 +20,7 @@ public class CollisionScript : MonoBehaviour
             if(current_scene != "fridge" && current_scene != "sink")
             {
                 Debug.Log(current_scene);
-                SceneManager.LoadScene(current_scene);
+                SceneManager.LoadScene(current_scene, LoadSceneMode.Single);
             }
             else
             {

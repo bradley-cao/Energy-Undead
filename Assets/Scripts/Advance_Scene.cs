@@ -16,7 +16,7 @@ public class Advance_Scene : MonoBehaviour
         {
             Debug.Log("stink");
             current_cutscene++;
-            if (current_cutscene > 2) { SceneManager.LoadScene("LobbyScene"); }
+            if (current_cutscene > 2) { SceneManager.LoadScene("LobbyScene", LoadSceneMode.Single); }
             else { cutscene_renderer.sprite = cutscenes[current_cutscene]; }
         }
     }

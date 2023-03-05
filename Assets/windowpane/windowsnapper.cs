@@ -103,7 +103,7 @@ public class windowsnapper : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         StartCoroutine("FadeOut");
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("End");
+        SceneManager.LoadScene("End", LoadSceneMode.Single);
     }
 
     IEnumerator FadeOut()

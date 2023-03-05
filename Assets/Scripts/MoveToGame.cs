@@ -9,7 +9,7 @@ public class MoveToGame : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("stack");
+            SceneManager.LoadScene("stack", LoadSceneMode.Single);
         }
     }
 }
