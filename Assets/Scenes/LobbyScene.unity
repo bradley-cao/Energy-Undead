@@ -918,12 +918,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 96be168028d375e4bb78f1e9346eba7e, type: 3}
   - {fileID: 21300000, guid: d47acce9f11e09242a215bd52a05709a, type: 3}
   - {fileID: 21300000, guid: 735f2d3d10a216d4686482ba0c45f6f0, type: 3}
-  window_renderer: {fileID: 0}
-  wall_renderer: {fileID: 0}
-  thermo_renderer: {fileID: 0}
-  windows: []
-  walls: []
-  thermos: []
+  window_renderer: {fileID: 1727319503}
+  wall_renderer: {fileID: 193351125}
+  thermo_renderer: {fileID: 840787170}
+  windows:
+  - {fileID: 21300000, guid: 26cae52bfc4674c40b9a3f738afbfba9, type: 3}
+  - {fileID: 21300000, guid: 2f43a28280e1d6a449204a828539cdbd, type: 3}
+  - {fileID: 21300000, guid: eec0547b0e61f374682e0715acd57a45, type: 3}
+  walls:
+  - {fileID: 21300000, guid: 89672591dfd31da4986265ed0354d455, type: 3}
+  - {fileID: 21300000, guid: 5e4463cfdfcc16c40b88cf2b43799f08, type: 3}
+  - {fileID: 21300000, guid: 8b92639e31b3c69468d96cca91e7adc3, type: 3}
+  thermos:
+  - {fileID: 21300000, guid: 4addf10d06a1f09439f5af126ec4975a, type: 3}
+  - {fileID: 21300000, guid: 1d24357bcfe8ab5438933794465ab84c, type: 3}
+  - {fileID: 21300000, guid: d625fac677d30594d9ab891e235ba503, type: 3}
 --- !u!1 &1146173488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,6 +1140,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9880824fc3e9a2b4180c244cc4579c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sink_renderer: {fileID: 2140054269}
+  fridge_renderer: {fileID: 547363334}
+  sinks:
+  - {fileID: 21300000, guid: ec2fcc8c22862ac4e8da6a85da57d1fa, type: 3}
+  - {fileID: 21300000, guid: 494511ddae22a9f47af98aa711f76986, type: 3}
+  - {fileID: 21300000, guid: ea004b1f9877eaf448bf853daa48fda0, type: 3}
+  - {fileID: 21300000, guid: 9028ec074990e804cb872bc05f75922f, type: 3}
+  fridges:
+  - {fileID: 21300000, guid: 96be168028d375e4bb78f1e9346eba7e, type: 3}
+  - {fileID: 21300000, guid: d47acce9f11e09242a215bd52a05709a, type: 3}
+  - {fileID: 21300000, guid: 735f2d3d10a216d4686482ba0c45f6f0, type: 3}
 --- !u!1 &1727319502
 GameObject:
   m_ObjectHideFlags: 0
