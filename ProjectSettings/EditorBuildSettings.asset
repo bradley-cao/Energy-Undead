@@ -8,18 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start Menu.unity
     guid: c36b7ffbfac32a6408e4c1e03f330fdc
-  - enabled: 1
-    path: Assets/Scenes/Introduction.unity
-    guid: cc36c696b8b9a304593358bf1ff2ea0e
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Stack.unity
     guid: 4ed73f43e3453a242a9317055883ec3d
   - enabled: 1
     path: Assets/Scenes/Thermostat.unity
     guid: cc4dbb6d6a57841b5a6c04b3037493d0
-  - enabled: 1
-    path: Assets/Scenes/LobbyScene.unity
-    guid: 200c04be37b38d04b9c15de41ac3436a
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: a44b022b6b21c4d518bef7c6d0321135
@@ -35,4 +35,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PauseMenu.unity
     guid: 8e95b7d441c074e478963c383f012b88
+  - enabled: 1
+    path: Assets/Scenes/WindowPane.unity
+    guid: 2306d816c2c0149ecbe1f5bdac7cd375
+  - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: f42ccd77af6273e4e956a0c031c262d1
+  - enabled: 1
+    path: Assets/Scenes/About.unity
+    guid: 797a3033b823b2f459df49ce30ea1569
   m_configObjects: {}

@@ -18,7 +18,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Introduction");
+        SceneManager.LoadScene("Cutscene");
     }
 
     public void About()

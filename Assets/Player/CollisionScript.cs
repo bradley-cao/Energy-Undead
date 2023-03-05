@@ -12,14 +12,14 @@ public class CollisionScript : MonoBehaviour
     public Sprite[] fridges;
     private void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log(collision.rigidbody);
         if(Input.GetKey(KeyCode.E))
         {
             string current_scene = collision.rigidbody.GetComponent<Text>().text;
             PlayerPrefs.SetString("last_scene", current_scene);
 
-            if(current_scene == "stack" || current_scene == "windowpane" || current_scene == "thermostat")
+            if(current_scene != "fridge" && current_scene != "sink")
             {
+                Debug.Log(current_scene);
                 SceneManager.LoadScene(current_scene);
             }
             else
