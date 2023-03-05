@@ -76,7 +76,6 @@ public class RadialSlider: MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
 						text.SetText(display_temp.ToString());
 
-						//Debug.Log(localPos+" : "+angle);
 					}
 				}
 				else if (isOnTarget) {

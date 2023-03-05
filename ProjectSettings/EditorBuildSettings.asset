@@ -15,6 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Stack.unity
     guid: 4ed73f43e3453a242a9317055883ec3d
   - enabled: 1
+    path: Assets/Scenes/Thermostat.unity
+    guid: cc4dbb6d6a57841b5a6c04b3037493d0
+  - enabled: 1
+    path: Assets/Scenes/LobbyScene.unity
+    guid: 200c04be37b38d04b9c15de41ac3436a
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: a44b022b6b21c4d518bef7c6d0321135
+  - enabled: 1
     path: Assets/Scenes/StackGameLose.unity
     guid: e29bbba288117c04dac054fab49accf6
   m_configObjects: {}
