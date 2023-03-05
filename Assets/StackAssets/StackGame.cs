@@ -19,7 +19,7 @@ public class StackGame : MonoBehaviour
     private float start = 0;
     private GameObject previousBlock;
     private int stackHeight = 0;
-    private int winHeight = 20;
+    private int winHeight = 17;
     void Start()
     {
         gameRunning = true;
@@ -37,7 +37,7 @@ public class StackGame : MonoBehaviour
             gameRunning = false;
             enabled = false;
             newblock.SetActive(false);
-            // SceneManager.LoadScene("Win");
+            SceneManager.LoadScene("LobbyScene");
         }
         RectTransform blockTransform = newblock.GetComponent<RectTransform>();
         var square = blockTransform.GetChild(0).GetComponent<RectTransform>();
@@ -46,7 +46,7 @@ public class StackGame : MonoBehaviour
         var width = blockTransform.rect.width;
         var center = (leftX + rightX)/2;
         float current = Time.time;
-        float speedBuffer = (current-start)*0.05f; // increase speed by 0.1 every second
+        float speedBuffer = (current-start)*0.05f; // increase speed by 0.05 every second
         speed = 5 + speedBuffer;
         if (newblock.transform.position.x < leftBound.x)
         {
