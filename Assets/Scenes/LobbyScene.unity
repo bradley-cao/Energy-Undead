@@ -321,7 +321,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: stack
+  m_Text: StackInstructions
 --- !u!222 &193351130
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -848,7 +848,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: thermostat
+  m_Text: ThermoInstructions
 --- !u!222 &840787174
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1349,7 +1349,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: windowpane
+  m_Text: WindowPaneInstructions
 --- !u!222 &1727319508
 CanvasRenderer:
   m_ObjectHideFlags: 0
