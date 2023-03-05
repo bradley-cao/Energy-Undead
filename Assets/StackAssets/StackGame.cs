@@ -19,20 +19,28 @@ public class StackGame : MonoBehaviour
     private float start = 0;
     private GameObject previousBlock;
     private int stackHeight = 0;
-    Vector3 velocity;
+    private int winHeight = 20;
     void Start()
     {
         gameRunning = true;
         start = Time.time;
-        newblock = Instantiate(blockPrefab, new Vector3(0, -250, 0), Quaternion.identity);
+        newblock = Instantiate(blockPrefab, new Vector3(0, -225, 0), Quaternion.identity);
         newblock.transform.SetParent(Canvas.transform, false);
-        Debug.Log(newblock.transform.position);
         // make block continuouslly bounce left and right
     }
 
     void Update()
     {
+        if (stackHeight == winHeight)
+        {
+            Debug.Log("You Win!");
+            gameRunning = false;
+            enabled = false;
+            newblock.SetActive(false);
+            // SceneManager.LoadScene("Win");
+        }
         RectTransform blockTransform = newblock.GetComponent<RectTransform>();
+        var square = blockTransform.GetChild(0).GetComponent<RectTransform>();
         var leftX = blockTransform.localPosition.x - blockTransform.rect.width/2;
         var rightX = blockTransform.localPosition.x + blockTransform.rect.width/2;
         var width = blockTransform.rect.width;
@@ -40,7 +48,6 @@ public class StackGame : MonoBehaviour
         float current = Time.time;
         float speedBuffer = (current-start)*0.05f; // increase speed by 0.1 every second
         speed = 5 + speedBuffer;
-        // make block continuouslly bounce left and right
         if (newblock.transform.position.x < leftBound.x)
         {
             direction = "right";
@@ -58,29 +65,33 @@ public class StackGame : MonoBehaviour
             newblock.transform.Translate(-1 * speed * Time.deltaTime, 0, 0);
         }
 
-        // on spacebar press, create new block, set it as child of canvas, and set it to the position of the old block, and stop old block
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (stackHeight > 0) 
             {
-                var prevWidth = previousBlock.GetComponent<RectTransform>().rect.width;
+                var prevWidth = square.localScale.x * 40;
                 var prevLeftX = previousBlock.GetComponent<RectTransform>().localPosition.x - prevWidth/2;
                 var prevRightX = previousBlock.GetComponent<RectTransform>().localPosition.x + prevWidth/2;
-                var currWidth = blockTransform.rect.width;
+                var prevCenter = previousBlock.GetComponent<RectTransform>().localPosition.x;
+                // Debug.Log("prevLeftX: " + prevLeftX + " prevRightX: " + prevRightX + " prevWidth: " + prevWidth + " prevCenter: " + prevCenter);
+                var currWidth = square.localScale.x * 40;
                 var currLeftX = blockTransform.localPosition.x - currWidth/2;
                 var currRightX = blockTransform.localPosition.x + currWidth/2;
                 if (currLeftX > prevRightX || currRightX < prevLeftX)
                 {
-                    Debug.Log("Game Over");
+                    Debug.Log("You Lose");
                     gameRunning = false;
-                    SceneManager.LoadScene("GameOver");
+                    enabled = false;
+                    newblock.SetActive(false);
+                    SceneManager.LoadScene("StackGameLose");
+                    // SceneManager.LoadScene("GameOver");
                 }
                 else if (currLeftX < prevLeftX)
                 {
                     var overlap = prevLeftX - currLeftX;
                     var newWidth = currWidth - overlap;
-                    var newLeftX = currLeftX + overlap/2;
-                    Debug.Log("overlap: " + overlap + " newWidth: " + newWidth + " newLeftX: " + newLeftX + " currRightX: " + currRightX);
+                    var newLeftX = prevLeftX;
+                    // Debug.Log("overlap: " + overlap + " newWidth: " + newWidth + " newLeftX: " + newLeftX + " currRightX: " + currRightX);
                     currLeftX = newLeftX;
                     currWidth = newWidth;
                 }
@@ -88,33 +99,39 @@ public class StackGame : MonoBehaviour
                 {
                     var overlap = currRightX - prevRightX;
                     var newWidth = currWidth - overlap;
-                    var newRightX = currRightX - overlap/2;
-                    Debug.Log("overlap: " + overlap + " newWidth: " + newWidth + " newRightX: " + newRightX + " currLeftX: " + currLeftX);
+                    var newRightX = prevRightX;
+                    // Debug.Log("overlap: " + overlap + " newWidth: " + newWidth + " newRightX: " + newRightX + " currLeftX: " + currLeftX);
                     currRightX = newRightX;
                     currWidth = newWidth;
                 }
-                // leftX = currLeftX;
-                // rightX = currRightX;
-                // center = (leftX + rightX)/2;
-                // width = currWidth;
+                leftX = currLeftX;
+                rightX = currRightX;
+                center = (leftX + rightX)/2;
+                width = currWidth;
                 // Debug.Log("currLeftX: " + leftX + " currRightX: " + rightX + " newWidth: " + width + " center: " + center);
-                // var square = blockTransform.GetChild(0).GetComponent<RectTransform>();
-                // newblock.GetComponent<RectTransform>().localPosition = new Vector3(center, blockTransform.localPosition.y, 0);
-                // square.anchoredPosition = new Vector3(center, square.anchoredPosition.y, 0);
-                //change square scale to match new block width
-                // square.sizeDelta = new Vector2(width, square.rect.height);
+                blockTransform.localPosition = new Vector3(center, blockTransform.localPosition.y, 0);
+                square.localScale = new Vector3(width/40, 10, 0);
             }
             
-            var height = blockTransform.rect.height;
-            Vector3 newPos = new Vector3(0, blockTransform.localPosition.y+height, 0);
-            
-            previousBlock = newblock;
-            newblock = Instantiate(blockPrefab, newPos, Quaternion.identity);            
-            newblock.transform.SetParent(Canvas.transform, false);
-
-            // set new block to width of overlap with old block
-
-            stackHeight++;
+            if (gameRunning) 
+            {
+                var height = blockTransform.rect.height;
+                Vector3 newPos;
+                if (direction == "right") {
+                    newPos = new Vector3(width/2, blockTransform.localPosition.y+height, 0);
+                }
+                else
+                {
+                    newPos = new Vector3(-1*width/2, blockTransform.localPosition.y+height, 0);
+                }
+                
+                previousBlock = newblock;
+                newblock = Instantiate(newblock, newPos, Quaternion.identity);            
+                newblock.transform.SetParent(Canvas.transform, false);
+                square = blockTransform.GetChild(0).GetComponent<RectTransform>();
+                square.localScale = new Vector3(width/40, 10, 0);
+                stackHeight++;
+            }
         }
     }
 }
